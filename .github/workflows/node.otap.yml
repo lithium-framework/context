@@ -91,6 +91,9 @@ jobs:
       - name: Pull branch from remote
         run: git pull
 
+      - name: Add authentication token to ~/.npmrc
+        run: echo "@lithium-framework:registry=https://npm.pkg.github.com/" > .npmrc && echo "//npm.pkg.github.com/:_authToken=${{secrets.PUBLISH_TOKEN}}" >> .npmrc
+
       - run: npm ci
       - run: npx tsc
 
