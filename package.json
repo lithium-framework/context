@@ -25,10 +25,11 @@
     "tslib": "^2.6.2"
   },
   "dependencies": {
-    "@lithium-framework/state": "file:../state",
+    "@lithium-framework/state": "^1.0.0",
     "@types/json-schema": "^7.0.15",
     "json-schema": "^0.4.0",
     "json-schema-generator": "^2.0.6",
-    "sql-template-strings": "^2.2.2"
+    "sql-template-strings": "^2.2.2",
+    "typescript": "^5.4.5"
   }
 }
