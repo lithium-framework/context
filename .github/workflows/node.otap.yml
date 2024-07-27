@@ -50,7 +50,7 @@ jobs:
       - name: Merge and push to test branch
         run: |
           git checkout test || git checkout -b test origin/test
-          git merge --no-ff --allow-unrelated-histories -X ours dev
+          git merge --no-ff --allow-unrelated-histories -X theirs dev
           git push origin test
       - name: Show Git log after push
         run: git log -1 --oneline
@@ -95,7 +95,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build:prod
+      - run: npm run build
 
       - name: Compare versions
         id: compare_versions
