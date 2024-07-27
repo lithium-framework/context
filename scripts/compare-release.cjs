@@ -14,11 +14,8 @@ async function main() {
     let { version: localVersion } = localPackageJson;
 
     let diff = semver.diff(npmVersion, localVersion);
-    console.log(`Local version: ${localVersion}`);
-    console.log(`NPM version: ${npmVersion}`);
-    console.log(`Version difference: ${diff}`);
 
-    if (diff === 'patch' || diff === 'minor' || diff === 'major') {
+    if (diff === 'patch' || diff === 'minor' || diff === 'major' || diff === 'preminor' || diff === 'premajor') {
       return diff;
     } else {
       return 'no significant difference';
