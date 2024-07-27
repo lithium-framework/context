@@ -95,6 +95,9 @@ jobs:
 
       - run: npm ci
 
+      - name : use last npm lithium packages
+        run: node scripts/update-packages.cjs
+
       - run: npm run build
 
       - name: Compare versions
@@ -108,9 +111,6 @@ jobs:
 
       - name: Use npm registry ~/.npmrc
         run: echo "//registry.npmjs.org/" > .npmrc
-
-      - name : use last npm lithium packages
-        run: node scripts/update-packages.cjs
 
       - name: Remove src directory
         run: rm -rf src
