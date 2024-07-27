@@ -4,29 +4,16 @@
     "target": "ESNext",
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "./src",
-    "outDir": ".",
+    "outDir": "dist",
     "removeComments": false,
-    "preserveConstEnums": true,
+    "preserveConstEnums" : true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    "moduleResolution":"node",
     "strict": false,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": "./",
-    "paths": {
-      "@lithium-framework/*": [
-        "node_modules/@lithium-framework/*"
-      ]
-    }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
