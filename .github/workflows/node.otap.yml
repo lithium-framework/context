@@ -95,9 +95,6 @@ jobs:
 
       - run: npm ci
 
-      - name : use last npm lithium packages
-        run: node scripts/update-packages.cjs
-
       - run: npm run build
 
       - name: Compare versions
@@ -111,6 +108,9 @@ jobs:
 
       - name: Use npm registry ~/.npmrc
         run: echo "//registry.npmjs.org/" > .npmrc
+
+      - name : use last npm lithium packages
+        run: node scripts/update-packages.cjs
 
       - name: Remove src directory
         run: rm -rf src
@@ -224,7 +224,7 @@ jobs:
         continue-on-error: true
 
       - name: Pull branch from remote
-        if: needs.prod-publish.outputs.diff == 'Not found' || needs.prod-publish.outputs.diff == 'patch' || needs.prod-publish.outputs.diff == 'minor' || needs.prod-publish.outputs.diff == 'major'
+        if: needs.prod-publish.outputs.diff == 'Not found' || needs.prod-publish.outputs.diff == 'patch' || needs.prod-publish.outputs.diff == 'minor' || needs.prod-publish.outputs.diff == 'preminor' || needs.prod-publish.outputs.diff == 'major' || needs.prod-publish.outputs.diff == 'premajor'
         run: git pull
 
       - name: Add authentication token to ~/.npmrc
@@ -233,6 +233,6 @@ jobs:
       - name: Publish to npm
         env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-        if: needs.prod-publish.outputs.diff == 'Not found' || needs.prod-publish.outputs.diff == 'patch' || needs.prod-publish.outputs.diff == 'minor' || needs.prod-publish.outputs.diff == 'major'
+        if: needs.prod-publish.outputs.diff == 'Not found' || needs.prod-publish.outputs.diff == 'patch' || needs.prod-publish.outputs.diff == 'minor' || needs.prod-publish.outputs.diff == 'preminor' || needs.prod-publish.outputs.diff == 'major' || needs.prod-publish.outputs.diff == 'premajor'
         run: npm publish  --provenance --access public || echo "::warning::Publish failed, please check the logs"
         
