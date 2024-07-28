@@ -2,7 +2,6 @@
   "name": "@lithium-framework/context",
   "version": "1.1.0",
   "description": "context",
-  "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
@@ -14,8 +13,8 @@
     "build:doc": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
     "build:dev": "node ./scripts/generate-tsconfig.cjs && tsc --watch",
     "build:prod": "NODE_ENV=production node ./scripts/generate-tsconfig.cjs && npx tsc",
-    "watch": "parcel watch",
-    "build": "parcel build"
+    "watch": "parcel watch src/index.ts",
+    "build": "parcel build src/index.ts"
   },
   "repository": {
     "type": "git",
