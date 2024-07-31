@@ -13,8 +13,11 @@
     "build:doc": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
     "build:dev": "node ./scripts/generate-tsconfig.cjs && tsc --watch",
     "build:prod": "NODE_ENV=production node ./scripts/generate-tsconfig.cjs && npx tsc",
-    "watch": "parcel watch src/index.ts",
-    "build": "parcel build src/index.ts"
+    "clear:dist": "rm -rf dist",
+    "clear:cache": "rm -rf .parcel-cache",
+    "clear":"npm run clear:dist && npm run clear:cache",
+    "watch": "npm run clear && parcel watch src/index.ts --log-level verbose",
+    "build": "npm run clear && parcel build src/index.ts --log-level verbose"
   },
   "repository": {
     "type": "git",
@@ -35,7 +38,7 @@
     "tslib": "^2.6.2"
   },
   "dependencies": {
-    "@lithium-framework/state": "^1.1.0",
+    "@lithium-framework/state": "^1.2.0",
     "@types/json-schema": "^7.0.15",
     "json-schema": "^0.4.0",
     "json-schema-generator": "^2.0.6",
