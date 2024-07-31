@@ -1,6 +1,6 @@
 {
   "name": "@lithium-framework/context",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "context",
   "main": "dist/main.js",
   "module": "dist/module.js",
@@ -15,7 +15,7 @@
     "build:prod": "NODE_ENV=production node ./scripts/generate-tsconfig.cjs && npx tsc",
     "clear:dist": "rm -rf dist",
     "clear:cache": "rm -rf .parcel-cache",
-    "clear":"npm run clear:dist && npm run clear:cache",
+    "clear": "npm run clear:dist && npm run clear:cache",
     "watch": "npm run clear && parcel watch src/index.ts --log-level verbose",
     "build": "npm run clear && parcel build src/index.ts --log-level verbose"
   },
